@@ -6,3 +6,4 @@ passsword = "1234"
 
 print ("Username:", username)
 print("Password:", password)
+print("Login system is ready")
