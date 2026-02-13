@@ -8,3 +8,5 @@ public class Game3 {
         System.out.println("====== Game 3 : Dice Codebreaker ======");
 
         Random random = new Random();
+
+        111
