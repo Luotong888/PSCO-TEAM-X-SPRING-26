@@ -9,4 +9,21 @@ public class Game3 {
 
         Random random = new Random();
 
-        111
+        int length = 4;
+        int maxAttempts = 10;
+
+        int[] secret = new int[length];
+
+        for (int i = 0; i < length; i++) {
+            secret[i] = random.nextInt(6) + 1;
+        }
+
+        int attempts = 0;
+        boolean win = false;
+
+        while (attempts < maxAttempts && !win) {
+
+            attempts++;
+            System.out.println("Attempt " + attempts + "/" + maxAttempts);
+
+            int[] guess = new int[length];
