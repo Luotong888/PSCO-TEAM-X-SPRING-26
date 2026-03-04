@@ -172,11 +172,11 @@ public class SystemCrashDice {
         System.out.println("\n--- DAVY JONES IS THINKING ---");
         sleep(1000);
 
-        // --- STEP 1: THE VIBE CHECK (Injecting Chaos) ---
-        // A completely random roll (0 to 99)
+
+        // A  random roll (0 to 99)
         int chaosRoll = randGen.nextInt(100);
 
-        // 10% Chance: The AI gets "Greedy" and raises no matter what
+        // 10% Chance: it gets "Greedy" and raises no matter what
         if (chaosRoll < 10) {
             System.out.println("(Davy Jones looks reckless...)");
             currentBidQuantity++;
@@ -188,7 +188,7 @@ public class SystemCrashDice {
             return false;
         }
 
-        // 10% Chance: The AI gets "Paranoid" and calls Liar immediately
+        // 10% Chance: "Paranoid" and calls Liar immediately
         if (chaosRoll > 90) {
             System.out.println("(Davy Jones looks nervous...)");
             System.out.println("Davy Jones says: \"I don't trust you! LIAR!\"");
@@ -196,9 +196,9 @@ public class SystemCrashDice {
             return true;
         }
 
-        // --- STEP 2: THE MATH (If it passed the Vibe Check) ---
+        // --- STEP 2:  MATH  ---
 
-        // 1. Count AI's actual dice
+        // 1. Count actual dice
         int myMatches = 0;
         int myBugs = 0;   // 1s
         int myPatches = 0; // 6s
@@ -209,7 +209,7 @@ public class SystemCrashDice {
             if (die == 6) myPatches++;
         }
 
-        // 2. Calculate AI's Strength (System Crash Logic)
+        // 2. Calculate  Strength (System Crash Logic)
         int effectiveBugs = Math.max(0, myBugs - myPatches);
         int myStrength = myMatches + effectiveBugs;
 
@@ -221,15 +221,15 @@ public class SystemCrashDice {
 
         double totalEstimate = myStrength + expectedPlayerStrength;
 
-        // --- STEP 3: THE DECISION ---
+        // --- STEP 3:  DECISION ---
 
-        // If the current bid is higher than the AI's estimate, it calls Liar.
+        // If the current bid is higher than the estimate, it calls Liar.
         if (currentBidQuantity > totalEstimate) {
             System.out.println("Davy Jones calculates odds... and calls LIAR!");
             resolveChallenge(true);
             return true;
         } else {
-            // AI Raises
+            //  Raises
             // It tries to pick a face value it actually has (Smart-ish move)
             if (myMatches == 0 && myBugs > 0) {
                 // If it has no matches but has bugs, it might switch face value randomly
