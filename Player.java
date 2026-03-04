@@ -1,6 +1,7 @@
+import org.json.JSONObject;
+
 import java.util.HashMap;
 import java.util.Map;
-import org.json.JSONObject; // json file we making instead of csv u can tall me if any doubts
 
 public class Player {
     private final String name;
@@ -10,9 +11,18 @@ public class Player {
         this.name = name;
     }
 
+    public String getName() {
+        return name;
+    }
+
     // ===== Score management =====
     public void setScore(String game, int score) {
         scores.put(game, score);
+    }
+
+    // NEW HELPER: Makes updating wins easier
+    public void incrementScore(String game) {
+        scores.put(game, getScore(game) + 1);
     }
 
     public int getScore(String game) {
@@ -40,7 +50,6 @@ public class Player {
             int score = scoresJson.getInt(game);
             p.setScore(game, score);
         }
-
         return p;
     }
 }
