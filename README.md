@@ -81,7 +81,6 @@ A simple **Data Wrapper**.
 
 ---
 
-### **Quick Summary Table for your Documentation**
 
 | Method | Responsibility |
 | --- | --- |
