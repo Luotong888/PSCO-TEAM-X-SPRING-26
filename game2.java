@@ -10,47 +10,48 @@ import java.util.Scanner;
         Dice dice = new Dice();
         Check check = new Check();
 
-        System.out.println("=== Dice Grid Puzzle (3x3) ===");
-        System.out.println("Roll the dice and place it in the grid.");
-        System.out.println("Scoring:");
-        System.out.println("Three of a Kind = 15");
-        System.out.println("Straight = 12");
-        System.out.println("Pair = 8");
-        System.out.println("All Different = 5\n");
+        System.out.println("        DICE GRID PUZZLE (3x3)   ");
+        System.out.println("roll the dice and place it in the grid.");
+        System.out.println("scoring:");
+        System.out.println("three of a kind = 15");
+        System.out.println("straight = 12");
+        System.out.println("pair = 8");
+        System.out.println("all different = 5\n");
 
         while (!grid.isFull()) {
             grid.print();
 
             int roll = dice.roll();
-            System.out.println("\nYou rolled: " + roll);
+            System.out.println("\nyou rolled: " + roll);
 
             int row, col;
+            boolean valid = false;
 
             while (true) {
-                System.out.print("Row (1-3): ");
+                System.out.print("row (1-3): ");
                 row = sc.nextInt() - 1;
 
-                System.out.print("Column (1-3): ");
+                System.out.print("column (1-3): ");
                 col = sc.nextInt() - 1;
 
                 if (!grid.isInside(row, col)) {
-                    System.out.println("❌ Invalid position. Try again.\n");
+                    System.out.println(" invalid position. try again.\n");
                 } else if (!grid.isEmpty(row, col)) {
-                    System.out.println("❌ Cell already used. Try again.\n");
+                    System.out.println(" cell already used. try again.\n");
                 } else {
                     break;
                 }
             }
 
             grid.place(row, col, roll);
-            System.out.println("------------------------------");
+            System.out.println("\n");
         }
 
-        System.out.println("\n=== FINAL GRID ===");
+        System.out.println("\n FINAL GRID ");
         grid.print();
 
         int totalScore = check.totalScore(grid);
-        System.out.println("\n🎯 TOTAL SCORE = " + totalScore);
+        System.out.println("\n TOTAL SCORE = " + totalScore);
 
         sc.close();
     }
