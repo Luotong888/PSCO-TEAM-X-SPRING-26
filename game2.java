@@ -10,7 +10,7 @@ import java.util.Scanner;
         Dice dice = new Dice();
         Check check = new Check();
 
-        System.out.println("=== DICE GRID PUZZLE (3x3) ===");
+        System.out.println("        DICE GRID PUZZLE (3x3)   ");
         System.out.println("roll the dice and place it in the grid.");
         System.out.println("scoring:");
         System.out.println("three of a kind = 15");
